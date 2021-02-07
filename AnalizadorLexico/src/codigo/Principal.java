@@ -6,19 +6,49 @@
 package codigo;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  *
  * @author Marisol
  */
 public class Principal {
-    public static void main(String[] args){
-        String ruta = "C:/Users/Marisol/Desktop/ETSCompiladoresFeb2021/AnalizadorLexico/src/codigo/Lexer.flex";
-        generarLexer(ruta);
+    public static void main(String[] args) throws Exception{
+        String ruta1 = "C:/Users/Marisol/Desktop/ETSCompiladoresFeb2021/AnalizadorLexico/src/codigo/Lexer.flex";
+        String ruta2 = "C:/Users/Marisol/Desktop/ETSCompiladoresFeb2021/AnalizadorLexico/src/codigo/LexerCup.flex";
+        String[] rutaS = {"-parser", "sintax", "C:/Users/Marisol/Desktop/ETSCompiladoresFeb2021/AnalizadorLexico/src/codigo/Syntax.cup"};
+        generar(ruta1,ruta2, rutaS);
     }
-    public static void generarLexer(String ruta){
-        File archivo = new File(ruta);
+    public static void generar(String ruta1, String ruta2, String[] rutaS) throws IOException, Exception{
+        File archivo;
+        archivo = new File(ruta1);
         JFlex.Main.generate(archivo);
+        archivo = new File(ruta2);
+        JFlex.Main.generate(archivo);
+        java_cup.Main.main(rutaS);
+        
+        Path rutaSym = Paths.get("C:/Users/Marisol/Desktop/ETSCompiladoresFeb2021/AnalizadorLexico/src/codigo/sym.java");
+        if (Files.exists(rutaSym)) {
+                Files.delete(rutaSym);
+            }    
+                
+        Files.move(
+                Paths.get("C:/Users/Marisol/Desktop/ETSCompiladoresFeb2021/AnalizadorLexico/sym.java"), 
+                Paths.get("C:/Users/Marisol/Desktop/ETSCompiladoresFeb2021/AnalizadorLexico/src/codigo/sym.java")
+        );
+        
+        Path rutaSin = Paths.get("C:/Users/Marisol/Desktop/ETSCompiladoresFeb2021/AnalizadorLexico/src/codigo/Sintax.java");
+        if (Files.exists(rutaSin)) {
+                Files.delete(rutaSin);
+            }
+        
+        Files.move(
+                Paths.get("C:/Users/Marisol/Desktop/ETSCompiladoresFeb2021/AnalizadorLexico/Sintax.java"), 
+                Paths.get("C:/Users/Marisol/Desktop/ETSCompiladoresFeb2021/AnalizadorLexico/src/codigo/Sintax.java")
+        );
     }
             
 }

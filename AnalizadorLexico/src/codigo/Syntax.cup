@@ -1,0 +1,32 @@
+package codigo;
+
+import java_cup.runtime.Symbol;
+
+parser code
+
+{:
+    
+    private Symbol s;
+
+    public void syntax_error(Symbol s){
+        this.s = s;
+    }
+
+    public Symbol getS(){
+        return this.s;
+    }
+
+
+:};
+
+terminal ent,car,flot,consta,AND,OR,NOT,CONCA,Si,Funcion,Imprimir,Escribir,
+         Cambiar,Igual,Mas,Menos,Parentesis_ap,Parentesis_c,Llave_ap,Llave_c,
+         Main,Punto_c,Identificador,Numero,ERROR;
+non terminal INICIO,SENTENCIA,DECLARACION;
+
+start with INICIO;
+
+INICIO ::= ent Main Parentesis_ap Parentesis_c Llave_ap SENTENCIA Llave_c
+;
+SENTENCIA ::= ent Identificador Punto_c | ent Identificador Igual Numero Punto_c
+;
