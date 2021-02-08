@@ -19,7 +19,7 @@ public class Principal {
     public static void main(String[] args) throws Exception{
         String ruta1 = "C:/Users/Marisol/Desktop/ETSCompiladoresFeb2021/AnalizadorLexico/src/codigo/Lexer.flex";
         String ruta2 = "C:/Users/Marisol/Desktop/ETSCompiladoresFeb2021/AnalizadorLexico/src/codigo/LexerCup.flex";
-        String[] rutaS = {"-parser", "sintax", "C:/Users/Marisol/Desktop/ETSCompiladoresFeb2021/AnalizadorLexico/src/codigo/Syntax.cup"};
+        String[] rutaS = {"-parser", "Sintax", "C:/Users/Marisol/Desktop/ETSCompiladoresFeb2021/AnalizadorLexico/src/codigo/Sintax.cup"};
         generar(ruta1,ruta2, rutaS);
     }
     public static void generar(String ruta1, String ruta2, String[] rutaS) throws IOException, Exception{
