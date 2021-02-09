@@ -75,6 +75,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 case CONCA:
                     resultado += "  <Reservada CONCA>\t" + lexer.lexem + "\n";
                     break;
+                case Para:
+                    resultado += "  <Reservada Para>\t" + lexer.lexem + "\n";
+                    break;
                 case Si:
                     resultado += "  <Reservada Si>\t" + lexer.lexem + "\n";
                     break; 
@@ -99,6 +102,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 case Menos:
                     resultado += "  <Operacion Menos>\t" + lexer.lexem + "\n";
                     break;
+                case MayorQ:
+                    resultado += "  <Operacion Mayor que>\t" + lexer.lexem + "\n";
+                    break;
+                case MenorQ:
+                    resultado += "  <Operacion Menor que>\t" + lexer.lexem + "\n";
+                    break;
                 case Parentesis_ap:
                     resultado += "  <Parentesis apertura>\t" + lexer.lexem + "\n";
                     break;
@@ -117,11 +126,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 case Punto_c:
                     resultado += "  <Punto coma>\t\t" + lexer.lexem + "\n";
                     break;
+                case Punto:
+                    resultado += "  <Punto>\t\t" + lexer.lexem + "\n";
+                    break;
                 case Identificador:
                     resultado += "  <Identificador>\t\t" + lexer.lexem + "\n";
                     break;
                 case Numero:
                     resultado += "  <Numero>\t\t" + lexer.lexem + "\n";
+                    break;
+                case NumeroD:
+                    resultado += "  <Numero Decimal>\t" + lexer.lexem + "\n";
                     break;
                 case ERROR:
                     resultado += "  <Simbolo no definido>\t\n";
@@ -180,6 +195,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         btnLimpiarL.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLimpiarL.setText("Limpiar");
+        btnLimpiarL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarLActionPerformed(evt);
+            }
+        });
 
         txtAnalizarLex.setColumns(20);
         txtAnalizarLex.setRows(5);
@@ -326,7 +346,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAnalizarSActionPerformed
 
     private void btnLimpiarSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarSActionPerformed
-        // TODO add your handling code here:
+        txtAnalizarS.setText(null);
     }//GEN-LAST:event_btnLimpiarSActionPerformed
 
     private void btnAnalizarLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalizarLActionPerformed
@@ -336,6 +356,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
             Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAnalizarLActionPerformed
+
+    private void btnLimpiarLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarLActionPerformed
+        txtAnalizarLex.setText(null);
+    }//GEN-LAST:event_btnLimpiarLActionPerformed
 
     /**
      * @param args the command line arguments
