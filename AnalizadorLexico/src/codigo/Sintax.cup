@@ -22,11 +22,12 @@ parser code
 terminal ent,car,flot,consta,AND,OR,NOT,CONCA,Para,Si,Funcion,Imprimir,Escribir,
          Cambiar,Igual,Mas,Menos,MayorQ,MenorQ,Parentesis_ap,Parentesis_c,Llave_ap,Llave_c,
          Main,Punto_c,Punto,Identificador,Numero,NumeroD,ERROR;
-non terminal INICIO,SENTENCIA,SENTENCIASF;
+non terminal INICIO,SENTENCIA;
 
 start with INICIO;
 
-INICIO ::= ent Main Parentesis_ap Parentesis_c Llave_ap SENTENCIA Llave_c | ent Main Parentesis_ap Parentesis_c Llave_ap SENTENCIA SENTENCIA Llave_c
+INICIO ::= ent Main Parentesis_ap Parentesis_c Llave_ap SENTENCIA Llave_c | 
+           ent Main Parentesis_ap Parentesis_c Llave_ap SENTENCIA SENTENCIA Llave_c
 ;
 SENTENCIA ::= ent Identificador Punto_c | ent Identificador Igual Numero Punto_c |
               flot Identificador Punto_c | flot Identificador Igual NumeroD Punto_c |
@@ -34,6 +35,7 @@ SENTENCIA ::= ent Identificador Punto_c | ent Identificador Igual Numero Punto_c
               car Identificador Igual Identificador Punto_c |
               consta ent Identificador Igual Numero Punto_c |
               consta flot Identificador Igual NumeroD Punto_c |
+              consta car Identificador Igual Identificador Punto_c |
               ent Identificador Igual Numero Mas Numero Punto_c |
               ent Identificador Igual Numero Menos Numero Punto_c |
               Identificador Igual Numero Mas Numero Punto_c |

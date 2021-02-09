@@ -1,0 +1,54 @@
+ent main() {
+
+ent A1;
+ent A1 = 1;
+flot B1;
+flot B1 = 2.1;
+car C1;
+car C2 = 3;
+car C1 = cadena;
+consta ent E1 = 4;
+consta flot E2 = 5.1;
+ent F1 = 6 + 7;
+ent F2 = 8 - 9;
+ent F3;
+F3 = 10 + 11;
+ent F4;
+F4 = 12 - 13;
+flot G1;
+G1 = 14.1 + 15.1;
+flot G2;
+G2 = 16.1 - 17.1;
+flot G3 = 13.1 - 12.1;
+flot G4 = 14.1 - 12.1;
+CONCA (C1;C2);
+Para(C1;6)
+Si(3>=4)
+Si(3<=4)
+Si(3>4)
+Si(3<4)
+Si(3=4)
+Si(3>=4 AND 2>=4)
+Si(3>=4 OR 2>=4)
+Si(NOT 3>=4)
+Si(3>=4 AND 2<=4)
+Si(3>=4 OR 2<=4)
+Si(NOT 2<=4)
+Si(3<=4 AND 2>=4)
+Si(3<=4 OR 2>=4)
+Si(3<4 AND 2>4)
+Si(3<4 OR 2>4)
+Si(NOT 3>4)
+Si(3<4 AND 2<4)
+Si(3<4 OR 2<4)
+Si(3>4 AND 2<4)
+Si(3>4 OR 2<4)
+Si(NOT 3<4)
+Si(NOT 3=4)
+Imprimir(La casa);
+Escribir(La planta; C1);
+Cambiar(ent; flot G1);
+Cambiar(flot; ent A1);
+Cambiar(car; flot B1);
+
+}
